@@ -7,22 +7,20 @@
 server_timezone  = "UTC"
 
 Vagrant.configure("2") do |config|
-    config.vm.box = "ubuntu/bionic64"
+    config.vm.box = "ubuntu/focal64"
 
     # etc/hosts config: 192.168.33.22 my-project.app
-    config.vm.network "private_network", ip: "192.168.50.23"
+    config.vm.network "private_network", ip: "192.168.50.230"
 
-    config.vm.network "forwarded_port", guest: 80, host: 9001
+    config.vm.network "forwarded_port", guest: 80, host: 8000
     config.vm.network "forwarded_port", guest: 3306, host: 33060
 
-    config.ssh.username = "ubuntu"
-    config.ssh.password = "vagrant"
-    config.ssh.insert_key = true
+    # TODO: add mongo, node, redis ports
 
     config.vm.provider :virtualbox do |vb|
         # Use VBoxManage to customize the VM. For example to change memory:
         vb.name = "fenix_vm"
-        vb.cpus = 1
+        vb.cpus = 2
         vb.customize ["modifyvm", :id, "--memory", "512"]
     end
     # Set share folder permissions to 777 so that apache can write files.
