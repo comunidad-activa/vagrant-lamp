@@ -1,6 +1,5 @@
 Vagrant LAMP
 ============
-[Описание на русском](https://github.com/SidiGi/vagrant-lamp/blob/master/README.ru.md)
 
 My default LAMP development stack configuration for Vagrant.
 
@@ -13,7 +12,7 @@ Requirements
 Use
 -----
 ### Begin
-	$ git clone https://github.com/SidiGi/vagrant-lamp.git
+	$ git clone this repo
 	$ cd vagrant-lamp
 	$ vagrant up
 
@@ -39,18 +38,16 @@ MySQL server is available on `33060` port , and on `3306` in VM.
 
 Technical description
 -----------------
-* Ubuntu 14.04 64-bit
+* Ubuntu 20.04 64-bit
 * phpMyAdmin 4.0
 * Apache 2.4.7
-* PHP 5.5
-* MySQL 5.5
-* NPM (optional)
-* NodeJS (optional)
-* Composer (optional)
-* Gulp (optional)
-* Bower (optional)
-
-This project uses a basic package of Ubuntu 14.04 x64 (VagrantCloud). If you have not downloaded the file box, then the first time you install will download the necessary box (soderzhatsy a necessary packages for the operating system).
+* PHP 7.4
+* MariaDB
+* NPM lts
+* NodeJS lts
+* Composer
+* Yarn
+* PM2
 
 The root folder of the site is located in the project folder and is called the `public`. You can create your files in it.
 
@@ -60,5 +57,5 @@ You can connect to the virtual machine Vagrant command (password vagrant)
 	$ vagrant ssh
 ```
 
-#### MySQL
+#### MariaDB
 mysql not accessible via ssh connection (vagrant ssh)

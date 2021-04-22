@@ -11,7 +11,7 @@ apache_ports_config_file="/etc/apache2/ports.conf"
 project_folder_name='public'
 
 # Variables env
-DBNAME=vagrant
+# DBNAME=vagrant
 DBUSER=vagrant
 DBPASSWD=vagrant
 
@@ -45,8 +45,7 @@ echo "phpmyadmin phpmyadmin/mysql/app-pass password ${DBPASSWD}" | debconf-set-s
 echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect none" | debconf-set-selections
 apt-get -y install mariadb-server mariadb-client phpmyadmin
 
-mysql -uroot -p${DBPASSWD} -e "CREATE DATABASE ${DBNAME}"
-mysql -uroot -p${DBPASSWD} -e "grant all privileges on $DBNAME.* to '${DBUSER}'@'localhost' identified by '${DBPASSWD}'"
+mysql -uroot -p${DBPASSWD} -e "grant all privileges on *.* to '${DBUSER}'@'localhost' identified by '${DBPASSWD}'"
 
 echo "--- add PHP repo ---"
 apt-get install -y software-properties-common

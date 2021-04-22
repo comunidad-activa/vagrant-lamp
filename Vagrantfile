@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
     # etc/hosts config: 192.168.33.22 my-project.app
     config.vm.network "private_network", ip: "192.168.50.230"
 
-    config.vm.network "forwarded_port", guest: 80, host: 8000
+    config.vm.network "forwarded_port", guest: 80, host: 8080
     config.vm.network "forwarded_port", guest: 3306, host: 33060
 
     # TODO: add mongo, node, redis ports
